@@ -1,0 +1,322 @@
+/* ═══════════════════════════════════════════════
+   Reset + Base
+   Fuente mínima 16px → previene auto-zoom en iOS
+   ═══════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #00cc66;
+    --blue: #4d96ff;
+    --purple: #c77dff;
+    --bg: #0d0d18;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --text: #f0f0f0;
+    --muted: #888;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* prevenir zoom en iOS */
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100dvh;
+    -webkit-tap-highlight-color: transparent;
+    /* quitar flash azul en tap */
+}
+
+button,
+a,
+[role="button"] {
+    touch-action: manipulation;
+}
+
+/* ════ Layout ════ */
+.app-root {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+/* ════ Header ════ */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0 0.5rem;
+}
+
+.app-brand {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.app-help-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ════ Progress bar ════ */
+.pb-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0.75rem 0 1.25rem;
+}
+
+.pb-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.pb-bubble {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.3s;
+    color: var(--muted);
+    z-index: 1;
+}
+
+.pb-step--active .pb-bubble {
+    border-color: var(--green);
+    background: color-mix(in srgb, var(--green) 15%, var(--card));
+    color: var(--text);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--green) 25%, transparent);
+}
+
+.pb-step--done .pb-bubble {
+    border-color: var(--green);
+    background: var(--green);
+    color: #000;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.pb-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.pb-step--active .pb-label {
+    color: var(--text);
+}
+
+.pb-line {
+    width: clamp(30px, 8vw, 60px);
+    height: 3px;
+    background: var(--border);
+    margin: 0 4px;
+    margin-bottom: 18px;
+    /* alinear con centro de las burbujas */
+    align-self: flex-start;
+    margin-top: 21px;
+}
+
+/* ════ Paso genérico ════ */
+.app-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+.app-step-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.app-step-footer--row {
+    flex-direction: row;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* ════ Botón grande (acción principal) ════ */
+.app-big-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: pointer;
+    min-height: 62px;
+    flex: 1;
+    transition: transform 0.1s, box-shadow 0.2s;
+    /* Tamaño mínimo de tap target WCAG 2.5.5 */
+    min-width: 200px;
+}
+
+.app-big-btn:active {
+    transform: scale(0.97);
+}
+
+.app-big-btn--primary {
+    background: linear-gradient(135deg, var(--green), #00aa55);
+    color: #000;
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--green) 35%, transparent);
+}
+
+.app-big-btn--primary:hover {
+    box-shadow: 0 6px 28px color-mix(in srgb, var(--green) 50%, transparent);
+}
+
+.app-big-btn--secondary {
+    background: var(--card);
+    border: 2px solid var(--border);
+    color: var(--text);
+}
+
+.app-big-btn-emoji {
+    font-size: 1.4rem;
+}
+
+/* ════ Botón de retroceso ════ */
+.app-back-btn {
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--muted);
+    border-radius: 12px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    min-height: 48px;
+    transition: border-color 0.15s;
+}
+
+.app-back-btn:hover {
+    border-color: #555;
+}
+
+/* ════ Print guide ════ */
+.pg-root {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pg-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+.pg-text strong {
+    color: #fff;
+}
+
+.pg-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: #2a2a3a;
+    border-radius: 10px;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    align-self: flex-start;
+}
+
+/* ════ Analyzing state ════ */
+.app-analyzing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 3rem 1rem;
+    min-height: 300px;
+}
+
+.app-spinner {
+    width: 56px;
+    height: 56px;
+    border: 5px solid #2a2a4a;
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.app-analyzing-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #aaa;
+    text-align: center;
+}
+
+.app-analysis-error {
+    display: flex;
+    min-height: 45vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #ff6688;
+    text-align: center;
+}
+
+/* ════ Reduced motion ════ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

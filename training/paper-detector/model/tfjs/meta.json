@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "accuracy": 0.9583,
+  "imgSize": [
+    224,
+    224
+  ],
+  "classes": {
+    "0": "no_paper",
+    "1": "paper"
+  },
+  "threshold": 0.6,
+  "description": "Detector de hoja de papel sobre mesa \u2014 Libro de Colorear v2.0"
+}

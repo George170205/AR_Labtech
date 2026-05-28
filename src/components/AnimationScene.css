@@ -1,0 +1,160 @@
+.as-root {
+    position: relative;
+    width: 100%;
+    /* aspect-ratio fijo para que el canvas mantenga sus proporciones */
+    aspect-ratio: 720 / 540;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #1a1a2e;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* El canvas de PixiJS es 720×540 px lógicos;
+   CSS lo escala para llenar el contenedor sin distorsión.
+   !important porque PixiJS con autoDensity pone style="width:720px;height:540px"
+   como estilo inline, que anularía la regla de clase sin !important. */
+.as-canvas {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.as-fallback-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+    object-fit: contain;
+    background: #ffffff;
+}
+
+.as-fallback-img--active {
+    z-index: 2;
+}
+
+.as-debug {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 12;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ddd;
+    font-size: 0.72rem;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+/* ── Overlays ── */
+.as-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5; /* encima del canvas (z-index:1) y fallback img (z-index:2) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(10, 10, 20, 0.65);
+    backdrop-filter: blur(4px);
+    color: #eee;
+}
+
+.as-overlay--transparent {
+    background: transparent;
+    backdrop-filter: none;
+    pointer-events: none;
+}
+
+.as-overlay--error {
+    background: rgba(20, 0, 0, 0.75);
+    color: #ff5555;
+}
+
+/* ── Reveal text ── */
+.as-reveal-text {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 900;
+    text-align: center;
+    color: #ffffff;
+    text-shadow:
+        0 0 20px rgba(255, 255, 80, 0.9),
+        0 0 40px rgba(255, 180, 0, 0.5);
+    animation: float-text 1.8s ease-in-out infinite;
+}
+
+@keyframes float-text {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-8px);
+        opacity: 0.8;
+    }
+}
+
+/* ── Spinner ── */
+.as-spinner {
+    width: 44px;
+    height: 44px;
+    border: 5px solid #2a2a4a;
+    border-top-color: #00cc66;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Controles ── */
+.as-controls {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.as-btn {
+    padding: 0.55rem 1.3rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #eee;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.as-btn:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.as-btn:active {
+    transform: scale(0.96);
+}
+
+.as-btn--save {
+    background: rgba(0, 120, 60, 0.7);
+}
+
+.as-btn--save:hover {
+    background: rgba(0, 160, 80, 0.9);
+}

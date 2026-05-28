@@ -1,0 +1,216 @@
+/* ── Layout ── */
+.cc-root {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cc-video-hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cc-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* En móvil: columna única */
+@media (max-width: 700px) {
+    .cc-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cc-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cc-section-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #aaa;
+    margin: 0;
+}
+
+/* ── Cámara + overlay ── */
+.cc-camera-wrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 16/9;
+}
+
+.cc-live {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* El overlay se posiciona exactamente encima del live canvas */
+.cc-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ── Status badge ── */
+.cc-status {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 2px solid var(--status-color);
+    color: var(--status-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* ── Papel rectificado ── */
+.cc-warped-wrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cc-warped {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cc-no-paper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.cc-no-paper--ml {
+    color: #e8a020;
+    font-weight: 600;
+    background: rgba(232, 160, 32, 0.08);
+    border-radius: 8px;
+}
+
+/* ── Ajuste manual tipo scanner ── */
+.cc-manual {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cc-manual-text {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.cc-manual-canvas {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    background: #111;
+    object-fit: contain;
+    touch-action: none;
+}
+
+/* ── Controles ── */
+.cc-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cc-btn {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.cc-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.cc-btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.cc-btn--primary {
+    background: #00CC66;
+    color: #000;
+}
+
+.cc-btn--secondary {
+    background: #444;
+    color: #fff;
+}
+
+/* ── Estados de carga / error ── */
+.cc-fullscreen {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #aaa;
+}
+
+.cc-error {
+    color: #ff4444;
+}
+
+.cc-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-top-color: #00CC66;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cc-ml-badge { position: absolute; top: 10px; right: 10px; background: rgba(0, 204, 102, 0.9); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10; animation: pulse 2s infinite; }

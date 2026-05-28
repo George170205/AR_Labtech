@@ -1,0 +1,230 @@
+.ca-root {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem;
+}
+
+/* ── Header ── */
+.ca-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ca-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+.ca-method {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.ca-method select {
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.82rem;
+}
+
+.ca-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background: #333;
+    color: #eee;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.ca-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ── Progress ── */
+.ca-progress {
+    position: relative;
+    height: 6px;
+    background: #222;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.ca-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00cc66, #44aaff);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.ca-progress-label {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* ── Previsualización ── */
+.ca-preview {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111;
+    max-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ca-preview-img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+.ca-summary {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+}
+
+/* ── Grid de zonas ── */
+.ca-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+/* ── ZoneColorCard ── */
+.zcc-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.zcc-card--empty {
+    opacity: 0.5;
+}
+
+.zcc-swatches {
+    display: flex;
+    height: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 2px;
+}
+
+.zcc-swatch {
+    flex: 1;
+    border-radius: 4px;
+}
+
+.zcc-swatch--raw {
+    flex: 0 0 36px;
+}
+
+.zcc-swatch--cluster {
+    min-width: 4px;
+}
+
+.zcc-swatch--empty {
+    background: #2a2a2a;
+}
+
+.zcc-swatch--pulse {
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.zcc-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.zcc-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: capitalize;
+}
+
+.zcc-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-transform: capitalize;
+}
+
+.zcc-name--empty {
+    color: #555;
+    font-weight: 400;
+}
+
+.zcc-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.zcc-confidence {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.zcc-delta {
+    font-size: 0.72rem;
+    color: #555;
+}
+
+/* ── Miscelánea ── */
+.ca-debug {
+    background: #111;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.75rem;
+}
+
+.ca-debug pre {
+    overflow-x: auto;
+    color: #88cc88;
+    margin: 0.5rem 0 0;
+}
+
+.ca-status-msg,
+.ca-error {
+    padding: 1.5rem;
+    text-align: center;
+    color: #888;
+}
+
+.ca-error {
+    color: #ff4444;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "libro-colorear",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node api.js && vite",
+    "dev:phone": "vite --host 0.0.0.0 --mode phone",
+    "build": "node api.js && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@techstark/opencv-js": "^4.12.0-release.1",
+    "@tensorflow-models/knn-classifier": "^1.2.6",
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-cpu": "^4.22.0",
+    "idb": "^8.0.0",
+    "pixi.js": "^7.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.10"
+  }
+}

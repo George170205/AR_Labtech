@@ -1,0 +1,80 @@
+.szc-layout {
+    display: flex;
+    gap: 2rem;
+    height: 100%;
+}
+
+.szc-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.szc-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.szc-svg-container {
+    flex: 1;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: crosshair;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.szc-svg-container.picking-cursor {
+    cursor: crosshair !important;
+}
+
+.szc-svg-container svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.szc-status {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.szc-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.szc-actions .btn-save {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 48px;
+    touch-action: manipulation;
+}
+
+.szc-actions .btn-save:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .szc-layout {
+        flex-direction: column;
+    }
+}

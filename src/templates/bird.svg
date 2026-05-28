@@ -1,0 +1,83 @@
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="400" height="320" fill="white"/>
+
+  <!-- Cola: gira desde la unión con el cuerpo -->
+  <g data-zone="cola"               data-label="Cola"
+     data-pivot-x="80"              data-pivot-y="188"
+     data-anim="swing"              data-anim-amplitude="16"
+     data-anim-speed="0.9"          data-anim-offset="0.8">
+    <polygon points="80,168 15,140 15,240 80,210"
+             fill="white" stroke="none"/>
+  </g>
+
+  <!-- Cuerpo -->
+  <g data-zone="cuerpo"             data-label="Cuerpo"
+     data-pivot-x="200"             data-pivot-y="200"
+     data-anim="breathe"            data-anim-amplitude="0.03"
+     data-anim-speed="0.7"          data-anim-offset="0">
+    <ellipse cx="200" cy="200" rx="130" ry="85" fill="white" stroke="none"/>
+  </g>
+
+  <!-- Pecho (color distinto al cuerpo) -->
+  <g data-zone="pecho"              data-label="Pecho"
+     data-pivot-x="200"             data-pivot-y="220"
+     data-anim="breathe"            data-anim-amplitude="0.03"
+     data-anim-speed="0.7"          data-anim-offset="0">
+    <ellipse cx="210" cy="220" rx="80" ry="52" fill="white" stroke="none"/>
+  </g>
+
+  <!-- Ala: bate desde la espalda del pájaro -->
+  <g data-zone="ala"                data-label="Ala"
+     data-pivot-x="165"             data-pivot-y="175"
+     data-anim="swing"              data-anim-amplitude="18"
+     data-anim-speed="1.3"          data-anim-offset="0">
+    <ellipse cx="165" cy="155" rx="95" ry="38"
+             transform="rotate(-15, 165, 175)"
+             fill="white" stroke="none"/>
+  </g>
+
+  <!-- Cabeza -->
+  <g data-zone="cabeza"             data-label="Cabeza"
+     data-pivot-x="280"             data-pivot-y="148"
+     data-anim="float"              data-anim-amplitude="4"
+     data-anim-speed="0.65"         data-anim-offset="0.5">
+    <circle cx="295" cy="135" r="55" fill="white" stroke="none"/>
+  </g>
+
+  <!-- Pico -->
+  <g data-zone="pico"               data-label="Pico"
+     data-pivot-x="345"             data-pivot-y="140"
+     data-anim="swing"              data-anim-amplitude="5"
+     data-anim-speed="0.65"         data-anim-offset="0.5">
+    <polygon points="345,128 388,140 345,152" fill="white" stroke="none"/>
+  </g>
+
+  <!-- ══ CONTORNOS ══ -->
+  <g id="contornos" fill="none" stroke="#1a1a1a" stroke-width="2.5"
+     stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="80,168 15,140 15,240 80,210"/>
+    <ellipse cx="200" cy="200" rx="130" ry="85"/>
+    <ellipse cx="210" cy="220" rx="80"  ry="52"/>
+    <ellipse cx="165" cy="155" rx="95"  ry="38" transform="rotate(-15, 165, 175)"/>
+    <circle  cx="295" cy="135" r="55"/>
+    <polygon points="345,128 388,140 345,152"/>
+    <!-- Ojo -->
+    <circle cx="316" cy="118" r="12"/>
+    <circle cx="319" cy="115" r="5" fill="#1a1a1a" stroke="none"/>
+    <circle cx="321" cy="113" r="2" fill="white" stroke="none"/>
+    <!-- Patas -->
+    <line x1="210" y1="283" x2="210" y2="312" stroke-width="3"/>
+    <line x1="210" y1="312" x2="186" y2="312" stroke-width="2.5"/>
+    <line x1="210" y1="312" x2="210" y2="318" stroke-width="2.5"/>
+    <line x1="210" y1="312" x2="228" y2="318" stroke-width="2.5"/>
+    <line x1="250" y1="283" x2="250" y2="312" stroke-width="3"/>
+    <line x1="250" y1="312" x2="226" y2="312" stroke-width="2.5"/>
+    <line x1="250" y1="312" x2="250" y2="318" stroke-width="2.5"/>
+    <line x1="250" y1="312" x2="268" y2="318" stroke-width="2.5"/>
+  </g>
+
+  <text x="200" y="313" text-anchor="middle" font-size="11" fill="#bbb">
+    ¡Colorea el pájaro!
+  </text>
+</svg>

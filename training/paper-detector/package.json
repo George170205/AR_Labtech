@@ -1,0 +1,14 @@
+{
+    "name": "paper-detector-trainer",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Script de entrenamiento para el detector de papel ML",
+    "main": "scripts/train.js",
+    "scripts": {
+        "train": "node scripts/train.js"
+    },
+    "dependencies": {
+        "@tensorflow-models/mobilenet": "^2.1.1",
+        "@tensorflow/tfjs-node": "^4.22.0"
+    }
+}

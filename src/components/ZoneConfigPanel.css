@@ -1,0 +1,78 @@
+.zcp-empty {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.zcp-root {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+.zcp-root h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-pivot {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-pivot:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-pivot.picking {
+    background: #f39c12;
+    border-color: #f39c12;
+    animation: pulse 1.5s infinite;
+}
+
+.pivot-coords {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.range-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.range-group input[type="range"] {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
